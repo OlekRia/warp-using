@@ -1,9 +1,12 @@
 [workspace]
 resolver = "2"
 
-members = [ "adapters",
+members = [
   # Libraries
-  "core", "ports",
+  "core",
+  "ports",
+  "adapters",
+  "use_cases",
   # Applications
-  "service", "use_cases",
+  "service",
 ]
