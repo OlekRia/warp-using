@@ -1,0 +1,10 @@
+/Users/oriabukha/src/_RUST/warp-using/target/debug/deps/librustls_pki_types-f892a4942f986e1a.rmeta: /Users/oriabukha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/rustls-pki-types-1.10.1/src/lib.rs /Users/oriabukha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/rustls-pki-types-1.10.1/src/base64.rs /Users/oriabukha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/rustls-pki-types-1.10.1/src/server_name.rs /Users/oriabukha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/rustls-pki-types-1.10.1/src/pem.rs
+
+/Users/oriabukha/src/_RUST/warp-using/target/debug/deps/librustls_pki_types-f892a4942f986e1a.rlib: /Users/oriabukha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/rustls-pki-types-1.10.1/src/lib.rs /Users/oriabukha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/rustls-pki-types-1.10.1/src/base64.rs /Users/oriabukha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/rustls-pki-types-1.10.1/src/server_name.rs /Users/oriabukha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/rustls-pki-types-1.10.1/src/pem.rs
+
+/Users/oriabukha/src/_RUST/warp-using/target/debug/deps/rustls_pki_types-f892a4942f986e1a.d: /Users/oriabukha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/rustls-pki-types-1.10.1/src/lib.rs /Users/oriabukha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/rustls-pki-types-1.10.1/src/base64.rs /Users/oriabukha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/rustls-pki-types-1.10.1/src/server_name.rs /Users/oriabukha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/rustls-pki-types-1.10.1/src/pem.rs
+
+/Users/oriabukha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/rustls-pki-types-1.10.1/src/lib.rs:
+/Users/oriabukha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/rustls-pki-types-1.10.1/src/base64.rs:
+/Users/oriabukha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/rustls-pki-types-1.10.1/src/server_name.rs:
+/Users/oriabukha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/rustls-pki-types-1.10.1/src/pem.rs:
