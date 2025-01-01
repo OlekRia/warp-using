@@ -1,5 +1,4 @@
 mod domain;
-mod utils;
 
 use warp::Filter;
 

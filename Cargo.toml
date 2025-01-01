@@ -3,9 +3,10 @@ resolver = "2"
 
 members = [
   # Libraries
+  "adapters",
+  "domain",
   "core",
   "ports",
-  "adapters",
   "use_cases",
   # Applications
   "service",
