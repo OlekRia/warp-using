@@ -1,0 +1,9 @@
+[workspace]
+resolver = "2"
+
+members = [ "adapters",
+  # Libraries
+  "core", "ports",
+  # Applications
+  "service", "use_cases",
+]
