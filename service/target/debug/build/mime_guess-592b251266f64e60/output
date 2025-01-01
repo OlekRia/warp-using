@@ -1,1 +1,0 @@
-cargo:rustc-env=MIME_TYPES_GENERATED_PATH=/Users/oriabukha/src/_RUST/warp-using/target/debug/build/mime_guess-592b251266f64e60/out/mime_types_generated.rs
