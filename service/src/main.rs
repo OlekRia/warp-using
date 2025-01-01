@@ -1,5 +1,3 @@
-mod domain;
-
 use warp::Filter;
 
 #[tokio::main]
