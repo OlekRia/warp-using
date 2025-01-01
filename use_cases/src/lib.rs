@@ -1,8 +1,2 @@
-pub struct QuestoinId(String);
+pub mod question;
 
-pub struct Question {
-    pub id: QuestoinId,
-    pub title: String,
-    pub content: String,
-    pub tags: Option<Vec<String>>,
-}

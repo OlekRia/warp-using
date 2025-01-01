@@ -177,6 +177,9 @@ dependencies = [
 [[package]]
 name = "domain"
 version = "0.1.0"
+dependencies = [
+ "serde",
+]
 
 [[package]]
 name = "encoding_rs"
@@ -1573,6 +1576,9 @@ dependencies = [
 [[package]]
 name = "use_cases"
 version = "0.1.0"
+dependencies = [
+ "domain",
+]
 
 [[package]]
 name = "utf-8"
@@ -1646,8 +1652,10 @@ dependencies = [
 name = "warp-using"
 version = "0.1.0"
 dependencies = [
+ "domain",
  "reqwest",
  "tokio",
+ "use_cases",
  "warp",
 ]
 

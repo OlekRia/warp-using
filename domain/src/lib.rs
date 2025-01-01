@@ -1,14 +1,27 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
+use serde::Serialize;
+use std::{
+    io::{Error, ErrorKind},
+    str::FromStr,
+};
+
+#[derive(Debug, Serialize)]
+pub struct QuestionId(pub String);
+
+impl FromStr for QuestionId {
+    type Err = std::io::Error;
+
+    fn from_str(id: &str) -> Result<Self, Self::Err> {
+        match id.is_empty() {
+            false => Ok(QuestionId(id.to_owned())),
+            true => Err(Error::new(ErrorKind::InvalidData, "Id is empty")),
+        }
+    }
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+#[derive(Debug, Serialize)]
+pub struct Question {
+    pub id: QuestionId,
+    pub title: String,
+    pub content: String,
+    pub tags: Option<Vec<String>>,
 }

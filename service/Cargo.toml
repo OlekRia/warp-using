@@ -8,6 +8,8 @@ name = "service"
 path = "src/main.rs"
 
 [dependencies]
+domain = { version = "0.1.0", path = "../domain" }
 reqwest = { version = "0.12.12", features = ["json"] }
 tokio = { version = "1.42.0", features = ["full"] }
+use_cases = { version = "0.1.0", path = "../use_cases" }
 warp = "0.3.7"
