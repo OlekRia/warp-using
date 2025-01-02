@@ -4,7 +4,7 @@ use ports::Storable;
 pub struct StorageFactory;
 
 impl StorageFactory {
-    pub fn create_storable() -> Box<dyn Storable> {
+    #[must_use] pub fn create_storable() -> Box<dyn Storable> {
         #[cfg(test)]
         {
             println!("Creating Storable in test mode");

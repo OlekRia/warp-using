@@ -57,6 +57,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .with_store(StorageFactory::create_storable())
         .build();
 
+    let store = application.db;
+    let store_filter = warp::any().map(move || store.clone());
+
     // Making CORS configuration
     let cors = warp::cors()
         .allow_any_origin()
@@ -80,6 +83,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let get_items = warp::get()
         .and(warp::path("questions"))
         .and(warp::path::end())
+        .and(store_filter)
         .and_then(get_question)
         .recover(return_error);
 

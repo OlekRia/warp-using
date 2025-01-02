@@ -13,9 +13,10 @@ impl FromStr for QuestionId {
     type Err = std::io::Error;
 
     fn from_str(id: &str) -> Result<Self, Self::Err> {
-        match id.is_empty() {
-            false => Ok(QuestionId(id.to_owned())),
-            true => Err(Error::new(ErrorKind::InvalidData, "Id is empty")),
+        if id.is_empty() {
+            Err(Error::new(ErrorKind::InvalidData, "Id is empty"))
+        } else {
+            Ok(Self(id.to_owned()))
         }
     }
 }
@@ -31,7 +32,13 @@ pub struct Question {
 }
 
 impl Question {
-    pub fn new(id: QuestionId, title: String, content: String, tags: Option<Vec<String>>) -> Self {
+    #[must_use]
+    pub const fn new(
+        id: QuestionId,
+        title: String,
+        content: String,
+        tags: Option<Vec<String>>,
+    ) -> Self {
         Self {
             id,
             title,

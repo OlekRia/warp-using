@@ -18,4 +18,8 @@ impl Storable for Store {
     fn get_questions(&self) -> &HashMap<QuestionId, Question> {
         &self.questions
     }
+
+    fn clone_box(&self) -> Box<dyn Storable> {
+        Box::new(self.clone())
+    }
 }
