@@ -1,10 +1,14 @@
+mod builder;
+
+use builder::ApplicationBuilder;
 use domain::{Question, QuestionId};
+use infrastructure::StorageFactory;
 use std::str::FromStr;
 use warp::{
     filters::cors::CorsForbidden,
     http::{Method, StatusCode},
-    reject::{Reject, Rejection},
-    Filter,
+    reject::Reject,
+    Filter, Rejection, Reply,
 };
 
 #[derive(Debug)]
@@ -12,10 +16,7 @@ struct InvalidId;
 
 impl Reject for InvalidId {}
 
-//
-
-async fn return_error(r: Rejection) -> Result<impl warp::Reply, Rejection> {
-    dbg!(&r);
+async fn return_error(r: Rejection) -> Result<impl Reply, Rejection> {
     if let Some(error) = r.find::<CorsForbidden>() {
         Ok(warp::reply::with_status(
             error.to_string(),
@@ -52,13 +53,11 @@ async fn get_question() -> Result<impl warp::Reply, warp::Rejection> {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let port = 3000;
+    let application = ApplicationBuilder::new()
+        .with_store(StorageFactory::create_storable())
+        .build();
 
-    //
-
-    // let store = Store::new();
-    // let store_filter = warp::any().map(move || store.clone());
-
+    // Making CORS configuration
     let cors = warp::cors()
         .allow_any_origin()
         // .allow_origin("https://google.com")
@@ -87,7 +86,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Combine routes
     let routes = options_handler.or(get_items).with(cors);
 
-    warp::serve(routes).run(([127, 0, 0, 1], port)).await;
+    warp::serve(routes)
+        .run(([127, 0, 0, 1], application.port))
+        .await;
 
     Ok(())
 }

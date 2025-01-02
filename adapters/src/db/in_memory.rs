@@ -1,4 +1,5 @@
 use domain::{Question, QuestionId};
+use ports::Storable;
 use std::collections::HashMap;
 
 #[derive(Debug, Clone)]
@@ -6,19 +7,15 @@ pub struct Store {
     questions: HashMap<QuestionId, Question>,
 }
 
-impl Store {
-    fn init() -> HashMap<QuestionId, Question> {
+impl Storable for Store {
+    fn init() -> Box<dyn Storable> {
         let file = include_str!("../../questions.json");
-        serde_json::from_str(file).expect("I cannot read questions.json")
+        let questions: HashMap<QuestionId, Question> =
+            serde_json::from_str(file).expect("Failed to read questions.json");
+        Box::new(Self { questions })
     }
 
-    pub fn new() -> Self {
-        Self {
-            questions: Self::init(),
-        }
+    fn get_questions(&self) -> &HashMap<QuestionId, Question> {
+        &self.questions
     }
 }
-
-// impl Storable for Store {}
-
-// pub struct InMemory {}

@@ -4,6 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-domain = { version = "*", path = "../domain" }
-ports = { version = "*", path = "../ports" }
+domain = { path = "../domain" }
+ports = { path = "../ports" }
 serde_json = "1.0.134"
