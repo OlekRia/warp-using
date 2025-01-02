@@ -1,15 +1,19 @@
 [package]
-name = "warp-using"
+name = "app_warp"
 version = "0.1.0"
 edition = "2021"
 
 [[bin]]
-name = "service"
+name = "app_warp"
 path = "src/main.rs"
 
 [dependencies]
-domain = { version = "0.1.0", path = "../domain" }
+core = { path = "../core" }
+domain = { path = "../domain" }
+use_cases = { path = "../use_cases" }
+ports = { path = "../ports" }
+infrastructure = { path = "../infrastructure" }
+
 reqwest = { version = "0.12.12", features = ["json"] }
 tokio = { version = "1.42.0", features = ["full"] }
-use_cases = { version = "0.1.0", path = "../use_cases" }
 warp = "0.3.7"

@@ -7,6 +7,7 @@ members = [
   "domain",
   "core",
   "use_cases",
+  "infrastructure",
   # Applications
-  "service",
+  "app_warp",
 ]

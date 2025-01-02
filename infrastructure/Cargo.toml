@@ -1,9 +1,8 @@
 [package]
-name = "use_cases"
+name = "infrastructure"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-domain = { path = "../domain" }
-core = { path = "../core" }
 ports = { path = "../ports" }
+adapters = { path = "../adapters" }

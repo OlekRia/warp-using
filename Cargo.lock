@@ -5,6 +5,11 @@ version = 4
 [[package]]
 name = "adapters"
 version = "0.1.0"
+dependencies = [
+ "domain",
+ "ports",
+ "serde_json",
+]
 
 [[package]]
 name = "addr2line"
@@ -20,6 +25,20 @@ name = "adler2"
 version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "512761e0bb2578dd7380c6baaa0f4ce03e84f95e960231d1dec8bf4d7d6e2627"
+
+[[package]]
+name = "app_warp"
+version = "0.1.0"
+dependencies = [
+ "core",
+ "domain",
+ "infrastructure",
+ "ports",
+ "reqwest",
+ "tokio",
+ "use_cases",
+ "warp",
+]
 
 [[package]]
 name = "atomic-waker"
@@ -693,6 +712,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "infrastructure"
+version = "0.1.0"
+dependencies = [
+ "adapters",
+ "ports",
+]
+
+[[package]]
 name = "ipnet"
 version = "2.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -950,6 +977,14 @@ name = "pkg-config"
 version = "0.3.31"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "953ec861398dccce10c670dfeaf3ec4911ca479e9c02154b3a215178c5f566f2"
+
+[[package]]
+name = "ports"
+version = "0.1.0"
+dependencies = [
+ "core",
+ "domain",
+]
 
 [[package]]
 name = "ppv-lite86"
@@ -1577,7 +1612,9 @@ dependencies = [
 name = "use_cases"
 version = "0.1.0"
 dependencies = [
+ "core",
  "domain",
+ "ports",
 ]
 
 [[package]]
@@ -1646,17 +1683,6 @@ dependencies = [
  "tokio-util",
  "tower-service",
  "tracing",
-]
-
-[[package]]
-name = "warp-using"
-version = "0.1.0"
-dependencies = [
- "domain",
- "reqwest",
- "tokio",
- "use_cases",
- "warp",
 ]
 
 [[package]]

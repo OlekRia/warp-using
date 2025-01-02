@@ -1,6 +1,5 @@
-use domain::QuestionId;
+use domain::{Question, QuestionId};
 use std::str::FromStr;
-use use_cases::question;
 use warp::{
     filters::cors::CorsForbidden,
     http::{Method, StatusCode},
@@ -38,7 +37,7 @@ async fn return_error(r: Rejection) -> Result<impl warp::Reply, Rejection> {
 async fn get_question() -> Result<impl warp::Reply, warp::Rejection> {
     let id = QuestionId::from_str("1").expect("Invalid ID");
 
-    let question = question::new(
+    let question = Question::new(
         id,
         "First question".to_owned(),
         "Content of question".to_owned(),
@@ -56,6 +55,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let port = 3000;
 
     //
+
+    // let store = Store::new();
+    // let store_filter = warp::any().map(move || store.clone());
 
     let cors = warp::cors()
         .allow_any_origin()
